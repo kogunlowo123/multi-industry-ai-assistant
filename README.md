@@ -1,108 +1,99 @@
-# Multi-Industry AI Assistant
-### Architect: Kehinde (Kenny) Samson Ogunlowo | Principal AI Infrastructure & Security Architect
+# 🌐 Multi-Industry AI Assistant — Enterprise Multi-Cloud Platform
 
-## Overview
-Production-grade, compliance-aware AI assistant serving **Healthcare (HIPAA)**, **Finance (SOX/FINRA)**,
-and **Oil & Gas (API/OSHA PSM)** industries. Each industry has its own plugin with domain-specific
-system prompts, query validation, PII detection, compliance disclaimers, and escalation logic.
+> **Architect:** [Kehinde (Kenny) Samson Ogunlowo](https://github.com/kogunlowo123) | Principal AI Infrastructure & Security Architect  
+> **Clearance:** Active Secret Clearance | [Citadel Cloud Management](https://citadelcloudmanagement.com)
 
-Built on real enterprise AI work at Ceretax (tax AI platform), NantHealth (clinical AI), and 
-Citadel Cloud Management (AI LMS platform).
+[![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=FF9900)]()
+[![Azure](https://img.shields.io/badge/Azure-0078D4?style=flat-square&logo=microsoft-azure)]()
+[![GCP](https://img.shields.io/badge/GCP-4285F4?style=flat-square&logo=google-cloud&logoColor=white)]()
+[![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
-## Architecture
+A production-grade, multi-cloud AI assistant platform with domain-specific configurations for **Healthcare, Defense, Finance, and Energy** sectors. Built on a unified LLM gateway with RAG, semantic caching, multi-provider failover, and compliance guardrails. Drawn from real implementations at Cigna (2M+ claims/month), Lockheed Martin (defense AI), and Ceretax (500K+ tax transactions).
+
+---
+
+## Platform Architecture
+
 ```
-                    ┌─────────────────────────┐
-                    │   Multi-Industry Router  │
-                    │   (Industry Detection)   │
-                    └───────────┬─────────────┘
-                                │
-              ┌─────────────────┼─────────────────┐
-              │                 │                 │
-   ┌──────────▼──────┐ ┌───────▼────────┐ ┌─────▼──────────┐
-   │  HEALTHCARE     │ │   FINANCE      │ │   OIL & GAS    │
-   │  HIPAA Plugin   │ │  SOX/FINRA     │ │  API/OSHA PSM  │
-   │  - PHI scrub    │ │  - MNPI guard  │ │  - Safety gate │
-   │  - FHIR aware   │ │  - Disclaimer  │ │  - PSM alert   │
-   │  - ICD-10/CPT   │ │  - SOX §302   │ │  - API stds    │
-   └─────────────────┘ └────────────────┘ └────────────────┘
-              │                 │                 │
-              └─────────────────┼─────────────────┘
-                                │
-                    ┌───────────▼─────────────┐
-                    │  Hallucination Validator │
-                    │  (NLI Faithfulness)      │
-                    └───────────┬─────────────┘
-                                │
-                    ┌───────────▼─────────────┐
-                    │    Audit Log + SIEM      │
-                    │  (Immutable, 7yr HIPAA)  │
-                    └─────────────────────────┘
-```
-
-## Industry Capabilities
-
-### 🏥 Healthcare (HIPAA)
-- ICD-10-CM/PCS and CPT coding guidance
-- HL7 FHIR R4 resource construction and query help
-- HIPAA §164.312 compliance Q&A
-- EHR workflow optimization (Epic, Cerner, Meditech)
-- Prior authorization workflows, revenue cycle management
-- PHI auto-detection and redaction in all inputs/outputs
-
-### 💰 Finance (SOX/FINRA)
-- SOX Section 302/404 internal controls documentation
-- FINRA Rule 2111 suitability compliance guidance
-- Basel III capital adequacy framework explanation
-- AML/KYC typology education
-- Financial reporting (GAAP/IFRS) interpretation
-- Audit trail and control documentation assistance
-
-### ⛽ Oil & Gas (API/OSHA PSM)
-- Drilling engineering support (well planning, mud programs)
-- OSHA PSM (29 CFR 1910.119) PHA/HAZOP process support
-- API standard references (RP 14C, 500, 510, 570, 1130)
-- Pipeline integrity management (PHMSA Part 195)
-- Environmental compliance (EPA Subpart W, Quad OOOOa)
-- Offshore BSEE SEMS II compliance guidance
-
-## Quick Start
-```bash
-pip install -r requirements.txt
-
-# Set environment variables
-export OPENAI_API_KEY="your-key"
-export AZURE_OPENAI_ENDPOINT="your-endpoint"
-
-# Run API server
-uvicorn src.api.main:app --host 0.0.0.0 --port 8000 --reload
-
-# Test healthcare query
-curl -X POST http://localhost:8000/chat \
-  -H "Content-Type: application/json" \
-  -d '{"query": "What is the ICD-10 code for sepsis due to MRSA?", "industry": "healthcare"}'
+┌───────────────────────────────────────────────────────────────────────────┐
+│                          UNIFIED LLM GATEWAY                              │
+│    Multi-provider failover: GPT-4 → Claude 3 → Gemini → Titan           │
+│    Semantic caching (Redis) | Rate limiting | Token economics             │
+│    Prompt versioning | A/B experimentation | Hallucination mitigation     │
+├──────────────┬────────────────┬───────────────────┬───────────────────────┤
+│  HEALTHCARE  │    DEFENSE     │      FINANCE       │       ENERGY         │
+│  ──────────  │  ──────────    │  ──────────────    │  ─────────────────   │
+│  FHIR R4 RAG │  Classified    │  Tax compliance    │  Equipment predict   │
+│  Clinical AI │  sensor fusion │  Claims AI (Cigna) │  Field ops optimize  │
+│  PHI-safe    │  CMMC L2      │  Fraud detection   │  Safety analysis     │
+│  Nuance DAX  │  FedRAMP High  │  AML screening     │  Regulatory AI       │
+├──────────────┴────────────────┴───────────────────┴───────────────────────┤
+│                          KNOWLEDGE LAYER                                  │
+│  Vector DB: pgvector | OpenSearch | Vertex Matching Engine | Azure Search │
+│  Document stores: S3 | Azure Blob | GCS | SharePoint                      │
+│  Structured data: PostgreSQL | BigQuery | Azure Synapse | Redshift        │
+├───────────────────────────────────────────────────────────────────────────┤
+│                        ORCHESTRATION LAYER                                │
+│           LangChain | AutoGen | CrewAI | Bedrock Agents                   │
+├───────────────────────────────────────────────────────────────────────────┤
+│                      OBSERVABILITY & GOVERNANCE                           │
+│  Prometheus | Grafana | Azure Monitor | Cloud Monitoring                  │
+│  Guardrails: Bedrock Guardrails | Azure AI Safety | Vertex AI Safety      │
+└───────────────────────────────────────────────────────────────────────────┘
 ```
 
-## Compliance Architecture Decisions
+---
 
-### Why separate plugins per industry (not a monolithic prompt)?
-A monolithic system prompt grows to 50,000+ tokens and becomes unmaintainable. Industry plugins
-allow independent testing, compliance auditing, and deployment — the Healthcare plugin can be
-updated and validated against HIPAA requirements without touching the Finance plugin.
+## Industry Configurations
 
-### Why low temperature (0.2) for regulated industries?
-Higher temperature (>0.5) increases creativity but also hallucination rate. For regulated contexts
-where a wrong ICD-10 code or incorrect OSHA citation has real consequences, determinism beats
-creativity. Temperature 0.2 reduces hallucination rate by ~35% vs 0.7 in our testing.
+### Healthcare AI
+- **FHIR R4 RAG** — Clinical knowledge retrieval with HIPAA-compliant data isolation
+- **Clinical Decision Support** — Readmission risk, chronic disease management, medication adherence
+- **Nuance DAX Integration** — AI-powered clinical documentation
+- **HIPAA/HITRUST guardrails** — PHI detection, redaction, audit logging
+- **Technologies:** Amazon HealthLake, Azure Health Data Services, Vertex AI Healthcare NLP
 
-### Why NLI faithfulness validation after generation?
-The LLM may generate plausible-sounding but unsupported claims even with a strong system prompt.
-NLI (Natural Language Inference) post-generation scoring provides a second independent check
-that each factual claim in the response is actually supported by retrieved context.
+### Defense AI
+- **Sensor Data Fusion** — Real-time IoT telemetry processing for 1,000+ assets
+- **Logistics Optimization** — AI-driven supply chain and logistics intelligence
+- **Predictive Maintenance** — Equipment failure prediction from sensor data
+- **Classified Data Handling** — Intel SGX, AMD SEV, Confidential GKE, AWS Nitro Enclaves
+- **Compliance:** FedRAMP High, CMMC Level 2, NIST 800-171
 
-## Resource References
-- FHIR R4 Specification: https://hl7.org/fhir/R4/
-- HIPAA Security Rule: https://www.hhs.gov/hipaa/for-professionals/security/index.html
-- SOX Section 404: https://pcaobus.org/Oversight/Standards/Auditing/Details/AS2201
-- OSHA PSM Standard: https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.119
-- API Standards: https://www.api.org/products-and-services/standards
-- FINRA Rules: https://www.finra.org/rules-guidance/rulebooks/finra-rules
+### Financial AI
+- **Tax Compliance Automation** — 500K+ transactions/month at sub-50ms latency (Ceretax)
+- **Claims Processing** — 2M+ claims/month with 40% manual review reduction (Cigna)
+- **Fraud Detection** — Real-time ML-based anomaly detection
+- **AML Screening** — Automated anti-money laundering pattern recognition
+- **Compliance:** PCI DSS, SOC 2, NIST 800-53
+
+### Energy AI
+- **Predictive Maintenance** — TensorFlow/PyTorch models on Azure ML for equipment failure
+- **Field Service Optimization** — Multi-agent scheduling and dispatch via Azure Logic Apps
+- **Operational Forecasting** — Demand prediction and resource optimization
+- **Safety Analytics** — Real-time hazard detection and safety compliance
+
+---
+
+## Key Features
+
+| Feature | Implementation |
+|---------|----------------|
+| Multi-provider LLM failover | AWS Bedrock → Azure OpenAI → Vertex AI automatic routing |
+| Semantic caching | Redis with embedding-based cache hit detection (60%+ cache rate) |
+| RAG with citations | Hybrid BM25 + dense retrieval with source attribution |
+| Hallucination mitigation | RAGAS evaluation, faithfulness scoring, confidence thresholding |
+| Prompt versioning | Git-based prompt management with A/B experimentation |
+| Compliance guardrails | PII/PHI redaction, content filtering, audit logging |
+| Observability | Token economics, latency tracking, SLO/SLI monitoring |
+
+---
+
+## Compliance Coverage
+HIPAA/HITRUST | FedRAMP High | CMMC Level 2 | PCI DSS | SOC 2 | NIST 800-53 | Zero Trust
+
+---
+
+## Author
+**Kehinde (Kenny) Ogunlowo** — [citadelcloudmanagement.com](https://citadelcloudmanagement.com) | kogunlowo@gmail.com | [LinkedIn](https://linkedin.com/in/kehinde-ogunlowo)
