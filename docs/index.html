@@ -774,6 +774,45 @@ body::after {
 .flow-node.model-node { border-color: rgba(129,140,248,0.3); color: var(--accent2); }
 .flow-node.output-node { border-color: rgba(56,189,248,0.3); color: var(--accent); }
 
+.flow-node a {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.flow-node a:hover { opacity: 0.8; }
+.flow-node a .ext-arrow { font-size: 8px; opacity: 0.5; }
+
+/* INDUSTRY DOCS */
+.industry-docs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.doc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  color: var(--text2);
+  text-decoration: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  transition: all 0.2s;
+}
+.doc-link:hover { border-color: var(--accent); color: var(--accent); background: rgba(56,189,248,0.06); }
+.doc-link.aws { border-color: rgba(255,153,0,0.3); }
+.doc-link.aws:hover { color: var(--aws); border-color: var(--aws); }
+.doc-link.azure { border-color: rgba(0,120,212,0.3); }
+.doc-link.azure:hover { color: var(--azure); border-color: var(--azure); }
+.doc-link.gcp { border-color: rgba(66,133,244,0.3); }
+.doc-link.gcp:hover { color: var(--gcp); border-color: var(--gcp); }
+
 .flow-arrow {
   font-size: 14px;
   color: var(--text3);
@@ -1220,7 +1259,13 @@ body::after {
       </div>
     </div>
 
-    <div class="content-grid">
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/health/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/solutions/industries/healthcare/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/solutions/healthcare-life-sciences" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card">
         <div class="card-title">🎯 Clinical Use Cases</div>
         <ul class="use-case-list">
@@ -1281,19 +1326,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">EHR / FHIR</div>
+        <div class="flow-node data-node"><a href="https://www.hl7.org/fhir/" target="_blank">EHR / FHIR <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Medical Imaging Store</div>
+        <div class="flow-node data-node"><a href="https://cloud.google.com/healthcare-api/docs/how-tos/dicom" target="_blank">Medical Imaging Store <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Feature Extraction</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/sagemaker/feature-store/" target="_blank">Feature Extraction <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">CV Model / LLM</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/sagemaker/" target="_blank">CV Model / LLM <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Inference Engine</div>
+        <div class="flow-node"><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/deploy-model.html" target="_blank">Inference Engine <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Clinician Copilot</div>
+        <div class="flow-node output-node"><a href="https://azure.microsoft.com/en-us/products/openai-service/" target="_blank">Clinician Copilot <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">EHR Alert / Note Draft</div>
+        <div class="flow-node output-node"><a href="https://www.hl7.org/fhir/clinicalreasoning-cds-on-fhir.html" target="_blank">EHR Alert / Note Draft <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -1453,7 +1498,13 @@ body::after {
       </div>
     </div>
 
-    <div class="content-grid">
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/financial-services/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/solutions/industries/financial-services/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/solutions/financial-services" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card">
         <div class="card-title">🎯 Core Use Cases</div>
         <ul class="use-case-list">
@@ -1503,19 +1554,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">Transaction Stream</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/kinesis/" target="_blank">Transaction Stream <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Customer / Account Data</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/redshift/" target="_blank">Customer / Account Data <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Feature Pipeline</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/sagemaker/feature-store/" target="_blank">Feature Pipeline <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">Fraud / Risk Model</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/fraud-detector/" target="_blank">Fraud / Risk Model <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Rules Engine</div>
+        <div class="flow-node"><a href="https://docs.aws.amazon.com/frauddetector/latest/ug/rules.html" target="_blank">Rules Engine <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Analyst Dashboard</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/quicksight/" target="_blank">Analyst Dashboard <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Compliance Report</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/artifact/" target="_blank">Compliance Report <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -1557,7 +1608,14 @@ body::after {
         <div class="industry-tags"><span class="tag tag-green">Recommendations</span><span class="tag tag-blue">Demand Forecasting</span><span class="tag tag-purple">Dynamic Pricing</span></div>
       </div>
     </div>
-    <div class="content-grid">
+
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/retail/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/solutions/industries/retail/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/solutions/retail" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card">
         <div class="card-title">🎯 Use Cases</div>
         <ul class="use-case-list">
@@ -1604,19 +1662,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">Clickstream / POS</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/kinesis/data-streams/" target="_blank">Clickstream / POS <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Product Catalog</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/dynamodb/" target="_blank">Product Catalog <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Feature Store</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/sagemaker/feature-store/" target="_blank">Feature Store <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">Rec / Forecast Model</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/personalize/" target="_blank">Rec / Forecast Model <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Ranking Engine</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/personalize/" target="_blank">Ranking Engine <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Personalized Feed</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/personalize/" target="_blank">Personalized Feed <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Merchant Dashboard</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/quicksight/" target="_blank">Merchant Dashboard <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -1655,7 +1713,14 @@ body::after {
         <div class="industry-tags"><span class="tag tag-blue">Predictive Maintenance</span><span class="tag tag-purple">Quality Vision</span><span class="tag tag-green">Digital Twins</span></div>
       </div>
     </div>
-    <div class="content-grid">
+
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/manufacturing/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/solutions/industries/manufacturing/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/solutions/manufacturing" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card"><div class="card-title">🎯 Use Cases</div><ul class="use-case-list"><li>Predictive maintenance for equipment failure prevention</li><li>Computer vision defect detection on production lines</li><li>Process anomaly detection from sensor data</li><li>Production scheduling and line yield optimization</li><li>Worker safety monitoring and PPE compliance</li><li>Supply chain planning and demand-driven production</li></ul></div>
       <div class="card"><div class="card-title">📊 Model Types</div><ul class="model-list"><li>CNN / ViT for visual quality inspection</li><li>LSTM / Transformer for sensor time series anomaly detection</li><li>Reinforcement Learning for process optimization and control</li><li>Physics-informed neural networks for digital twins</li><li>Forecasting models for production and supply planning</li></ul></div>
       <div class="card"><div class="card-title">✅ Business Value</div><ul class="value-list"><li>30-50% reduction in unplanned downtime via predictive maintenance</li><li>15-25% improvement in defect detection accuracy</li><li>10-20% increase in overall equipment effectiveness (OEE)</li><li>Reduced scrap and rework costs across production lines</li><li>Faster root cause analysis for quality incidents</li></ul></div>
@@ -1665,19 +1730,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">IoT Sensors / SCADA</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/iot-sitewise/" target="_blank">IoT Sensors / SCADA <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Telemetry Ingestion</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/iot-core/" target="_blank">Telemetry Ingestion <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Feature Engineering</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/sagemaker/feature-store/" target="_blank">Feature Engineering <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">Anomaly / CV Model</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/lookout-for-equipment/" target="_blank">Anomaly / CV Model <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Edge Inference</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/greengrass/" target="_blank">Edge Inference <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Maintenance Alert</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/monitron/" target="_blank">Maintenance Alert <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Digital Twin Dashboard</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/iot-twinmaker/" target="_blank">Digital Twin Dashboard <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -1716,7 +1781,14 @@ body::after {
         <div class="industry-tags"><span class="tag tag-blue">SOC Copilots</span><span class="tag tag-warn">Threat Detection</span><span class="tag tag-purple">Identity AI</span></div>
       </div>
     </div>
-    <div class="content-grid">
+
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/security/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/solutions/security/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/security" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card"><div class="card-title">🎯 Use Cases</div><ul class="use-case-list"><li>Real-time threat detection and SIEM alert triage</li><li>Network anomaly and lateral movement detection</li><li>Phishing email and malware classification</li><li>Identity and access behavior analytics (UEBA)</li><li>Attack path analysis and blast radius modeling</li><li>SOC analyst copilots for incident investigation</li><li>Vulnerability correlation and prioritization</li></ul></div>
       <div class="card"><div class="card-title">📊 Model Types</div><ul class="model-list"><li>Isolation Forest / LSTM for sequence anomaly detection</li><li>GNN for attack path and network topology analysis</li><li>LLMs for analyst copilots, incident summarization, runbooks</li><li>Transformer classifiers for malware and phishing detection</li><li>Behavioral baselines (statistical) for UEBA</li></ul></div>
       <div class="card"><div class="card-title">✅ Business Value</div><ul class="value-list"><li>80% reduction in mean-time-to-detect (MTTD) for threats</li><li>3-5x analyst productivity improvement with AI triage</li><li>Reduced alert fatigue from intelligent prioritization</li><li>Faster incident response and containment</li><li>Proactive threat hunting vs reactive alert chasing</li></ul></div>
@@ -1726,19 +1798,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">SIEM / Log Sources</div>
+        <div class="flow-node data-node"><a href="https://azure.microsoft.com/en-us/products/microsoft-sentinel/" target="_blank">SIEM / Log Sources <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Telemetry Pipeline</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/kinesis/data-firehose/" target="_blank">Telemetry Pipeline <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Behavioral Baselines</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/guardduty/" target="_blank">Behavioral Baselines <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">Anomaly / Classifier</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/sagemaker/" target="_blank">Anomaly / Classifier <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Alert Correlation</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/security-hub/" target="_blank">Alert Correlation <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">SOC Copilot</div>
+        <div class="flow-node output-node"><a href="https://learn.microsoft.com/en-us/security-copilot/" target="_blank">SOC Copilot <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Incident Response</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/detective/" target="_blank">Incident Response <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -1777,7 +1849,14 @@ body::after {
         <div class="industry-tags"><span class="tag tag-purple">Route Optimization</span><span class="tag tag-blue">ETA Prediction</span><span class="tag tag-green">Warehouse AI</span></div>
       </div>
     </div>
-    <div class="content-grid">
+
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/telecom-transportation/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/solutions/industries/transportation/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/solutions/transportation-logistics" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card"><div class="card-title">🎯 Use Cases</div><ul class="use-case-list"><li>Dynamic route and last-mile delivery optimization</li><li>ETA prediction with traffic, weather, and load factors</li><li>Fleet predictive maintenance and telematics</li><li>Warehouse robotics guidance and slotting optimization</li><li>Package volume and demand forecasting</li><li>Fuel optimization and empty mile reduction</li></ul></div>
       <div class="card"><div class="card-title">📊 Model Types</div><ul class="model-list"><li>Combinatorial optimization solvers (OR-Tools, VRP)</li><li>Graph algorithms for network and routing problems</li><li>DeepAR / LSTM for volume and demand forecasting</li><li>Computer vision for warehouse and dock operations</li><li>RL for autonomous routing and dock scheduling</li></ul></div>
       <div class="card"><div class="card-title">✅ Business Value</div><ul class="value-list"><li>10-25% reduction in fuel and routing costs</li><li>Improved on-time delivery rates by 15-30%</li><li>Lower empty mile percentages across fleet</li><li>Warehouse throughput increases via slotting optimization</li><li>Reduced driver turnover through better scheduling</li></ul></div>
@@ -1787,19 +1866,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">GPS / Telematics</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/location-service/" target="_blank">GPS / Telematics <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Order / Demand Data</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/redshift/" target="_blank">Order / Demand Data <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Route Solver</div>
+        <div class="flow-node"><a href="https://developers.google.com/maps/documentation/routes" target="_blank">Route Solver <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">Optimization Engine</div>
+        <div class="flow-node model-node"><a href="https://cloud.google.com/optimization/docs" target="_blank">Optimization Engine <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Dispatch System</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/location-service/" target="_blank">Dispatch System <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Driver App / ETA</div>
+        <div class="flow-node output-node"><a href="https://developers.google.com/maps/documentation/directions" target="_blank">Driver App / ETA <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Fleet Dashboard</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/iot-fleetwise/" target="_blank">Fleet Dashboard <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -1835,7 +1914,14 @@ body::after {
         <div class="industry-tags"><span class="tag tag-warn">Grid Optimization</span><span class="tag tag-blue">Asset Health</span><span class="tag tag-green">Renewable AI</span></div>
       </div>
     </div>
-    <div class="content-grid">
+
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/energy/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/solutions/power-and-utilities/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/solutions/energy" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card"><div class="card-title">🎯 Use Cases</div><ul class="use-case-list"><li>Energy demand and load forecasting for grid balancing</li><li>Predictive maintenance for turbines, transformers, pipelines</li><li>Renewable energy output forecasting (solar, wind)</li><li>Outage prediction and root cause analysis</li><li>Seismic interpretation for O&G exploration</li><li>Refinery process optimization and yield improvement</li></ul></div>
       <div class="card"><div class="card-title">📊 Model Types</div><ul class="model-list"><li>Transformer time series for load and renewable forecasting</li><li>Anomaly detection on SCADA and sensor telemetry</li><li>CNNs for seismic data interpretation</li><li>Geospatial AI for pipeline and infrastructure monitoring</li><li>Optimization models for grid dispatch and trading</li></ul></div>
       <div class="card"><div class="card-title">✅ Business Value</div><ul class="value-list"><li>1-3% generation efficiency improvement = millions in savings</li><li>40-60% reduction in unplanned asset downtime</li><li>Better renewable integration and grid stability</li><li>Reduced fuel costs through optimized dispatch</li><li>Faster outage restoration through predictive analytics</li></ul></div>
@@ -1845,19 +1931,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">SCADA / Meters</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/iot-sitewise/" target="_blank">SCADA / Meters <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Weather / Grid Data</div>
+        <div class="flow-node data-node"><a href="https://registry.opendata.aws/noaa-ghcn/" target="_blank">Weather / Grid Data <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Feature Pipeline</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/sagemaker/feature-store/" target="_blank">Feature Pipeline <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">Forecast / Anomaly Model</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/forecast/" target="_blank">Forecast / Anomaly Model <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Dispatch Optimizer</div>
+        <div class="flow-node"><a href="https://cloud.google.com/optimization/docs" target="_blank">Dispatch Optimizer <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Grid Control</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/iot-sitewise/" target="_blank">Grid Control <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Ops Dashboard</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/cloudwatch/" target="_blank">Ops Dashboard <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -1893,7 +1979,14 @@ body::after {
         <div class="industry-tags"><span class="tag tag-green">Lead Scoring</span><span class="tag tag-blue">Content Gen</span><span class="tag tag-purple">Ad Optimization</span></div>
       </div>
     </div>
-    <div class="content-grid">
+
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/advertising-marketing/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/solutions/industries/media-entertainment/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/solutions/media-entertainment" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card"><div class="card-title">🎯 Use Cases</div><ul class="use-case-list"><li>Propensity and lead scoring from CRM signals</li><li>AI-generated ad copy, email sequences, landing pages</li><li>Audience segmentation and lookalike modeling</li><li>Multi-touch attribution modeling</li><li>Sales call transcription, coaching, and objection tracking</li><li>Sentiment and brand monitoring from social/reviews</li><li>CRM summarization and next-best-action recommendations</li></ul></div>
       <div class="card"><div class="card-title">📊 Model Types</div><ul class="model-list"><li>Gradient Boosting for propensity and churn scoring</li><li>Multi-touch attribution models (Markov, Shapley)</li><li>LLMs for content generation and CRM copilots</li><li>Transformer NLP for sentiment, call analysis</li><li>Clustering (k-means, HDBSCAN) for audience segmentation</li></ul></div>
       <div class="card"><div class="card-title">✅ Business Value</div><ul class="value-list"><li>20-40% lower customer acquisition cost (CAC)</li><li>2-5x content production velocity with AI generation</li><li>15-30% improvement in lead-to-close conversion</li><li>Better ad spend ROI through intelligent targeting</li><li>Reduced churn through predictive retention campaigns</li></ul></div>
@@ -1903,19 +1996,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">CRM / Analytics</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/pinpoint/" target="_blank">CRM / Analytics <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Customer Signals</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/kinesis/data-analytics/" target="_blank">Customer Signals <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Segmentation</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/pinpoint/" target="_blank">Segmentation <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">Scoring / Gen Model</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/bedrock/" target="_blank">Scoring / Gen Model <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Campaign Engine</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/pinpoint/" target="_blank">Campaign Engine <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Personalized Content</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/personalize/" target="_blank">Personalized Content <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Performance Dashboard</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/quicksight/" target="_blank">Performance Dashboard <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -1951,7 +2044,14 @@ body::after {
         <div class="industry-tags"><span class="tag tag-blue">Contract AI</span><span class="tag tag-purple">Legal Research</span><span class="tag tag-warn">Compliance</span></div>
       </div>
     </div>
-    <div class="content-grid">
+
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/bedrock/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/products/openai-service/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/vertex-ai/generative-ai/docs" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card"><div class="card-title">🎯 Use Cases</div><ul class="use-case-list"><li>Contract analysis, clause extraction, and risk flagging</li><li>Legal research and case law synthesis</li><li>E-discovery document classification and review</li><li>Regulatory compliance monitoring and gap analysis</li><li>Policy and legislation comparison</li><li>Drafting assistance for standard agreements</li></ul></div>
       <div class="card"><div class="card-title">📊 Model Types</div><ul class="model-list"><li>LLMs with RAG for legal research (citation-grounded)</li><li>Transformer NLP for contract clause classification</li><li>Named entity recognition for party, date, obligation extraction</li><li>Document clustering for e-discovery triage</li></ul></div>
       <div class="card"><div class="card-title">✅ Business Value</div><ul class="value-list"><li>50-80% time savings on contract review cycles</li><li>Reduced outside counsel spend ($500-$1000/hr savings)</li><li>Faster e-discovery document review (10x throughput)</li><li>Improved compliance coverage and gap detection</li><li>Consistent clause risk identification across firm</li></ul></div>
@@ -1961,19 +2061,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">Legal Documents</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/textract/" target="_blank">Legal Documents <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Knowledge Base / DMS</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/kendra/" target="_blank">Knowledge Base / DMS <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Vector Embeddings</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/opensearch-service/" target="_blank">Vector Embeddings <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">RAG + LLM</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/bedrock/" target="_blank">RAG + LLM <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Citation Verification</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/bedrock/" target="_blank">Citation Verification <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Legal Copilot</div>
+        <div class="flow-node output-node"><a href="https://azure.microsoft.com/en-us/products/openai-service/" target="_blank">Legal Copilot <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Review Dashboard</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/quicksight/" target="_blank">Review Dashboard <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -2009,7 +2109,14 @@ body::after {
         <div class="industry-tags"><span class="tag tag-purple">Adaptive Tutoring</span><span class="tag tag-blue">Auto-Grading</span><span class="tag tag-green">Student Risk</span></div>
       </div>
     </div>
-    <div class="content-grid">
+
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/education/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/solutions/industries/education/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/solutions/education" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card"><div class="card-title">🎯 Use Cases</div><ul class="use-case-list"><li>Adaptive tutoring and personalized lesson pacing</li><li>AI teaching assistants for Q&A and explanation</li><li>Automated essay grading and feedback generation</li><li>Student risk and early intervention prediction</li><li>Curriculum planning and content recommendation</li><li>Administrative task automation for educators</li></ul></div>
       <div class="card"><div class="card-title">📊 Model Types</div><ul class="model-list"><li>LLMs for tutoring, explanation, and feedback generation</li><li>Knowledge tracing models (Deep Knowledge Tracing)</li><li>Recommendation models for learning path personalization</li><li>Classifier models for at-risk student identification</li></ul></div>
       <div class="card"><div class="card-title">✅ Business Value</div><ul class="value-list"><li>Personalized learning paths improve completion rates 20-40%</li><li>Automated grading frees 5-10 hrs/week per instructor</li><li>Early intervention reduces dropout rates by 15-25%</li><li>Scalable tutoring access regardless of class size</li><li>Consistent, timely feedback across all students</li></ul></div>
@@ -2019,19 +2126,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">LMS / Assessment Data</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/education/" target="_blank">LMS / Assessment Data <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Student Profile</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/dynamodb/" target="_blank">Student Profile <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Knowledge Tracer</div>
+        <div class="flow-node"><a href="https://cloud.google.com/vertex-ai" target="_blank">Knowledge Tracer <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">Tutor LLM</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/bedrock/" target="_blank">Tutor LLM <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Adaptive Engine</div>
+        <div class="flow-node"><a href="https://cloud.google.com/vertex-ai" target="_blank">Adaptive Engine <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Student Interface</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/amplify/" target="_blank">Student Interface <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Educator Dashboard</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/quicksight/" target="_blank">Educator Dashboard <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -2066,7 +2173,14 @@ body::after {
         <div class="industry-tags"><span class="tag tag-green">Drug Discovery</span><span class="tag tag-blue">Clinical Trials</span><span class="tag tag-purple">Protein Folding</span></div>
       </div>
     </div>
-    <div class="content-grid">
+
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/health/life-sciences/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/solutions/industries/health-life-sciences/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/solutions/healthcare-life-sciences" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card"><div class="card-title">🎯 Use Cases</div><ul class="use-case-list"><li>Generative molecule design and property prediction</li><li>Target identification and biomarker discovery</li><li>Clinical trial patient cohort matching</li><li>Adverse event signal detection from real-world data</li><li>Scientific literature mining and evidence synthesis</li><li>Protein structure prediction and interaction modeling</li></ul></div>
       <div class="card"><div class="card-title">📊 Model Types</div><ul class="model-list"><li>Graph Neural Networks for molecular property prediction</li><li>Transformer foundation models (ESMFold, MolFormer)</li><li>NLP/LLMs for scientific literature processing</li><li>Survival models for clinical outcome prediction</li><li>Simulation-driven models for ADMET property prediction</li></ul></div>
       <div class="card"><div class="card-title">✅ Business Value</div><ul class="value-list"><li>Compress drug discovery from years to months</li><li>Reduce clinical trial failure rates through better cohort selection</li><li>Accelerate literature review and evidence synthesis 10x</li><li>Lower cost-per-molecule for lead optimization</li><li>Faster regulatory submission document preparation</li></ul></div>
@@ -2076,19 +2190,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">Omics / Assay Data</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/omics/" target="_blank">Omics / Assay Data <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Literature Corpus</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/kendra/" target="_blank">Literature Corpus <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Molecular Featurization</div>
+        <div class="flow-node"><a href="https://cloud.google.com/vertex-ai" target="_blank">Molecular Featurization <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">GNN / Foundation Model</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/sagemaker/" target="_blank">GNN / Foundation Model <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">ADMET Prediction</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/sagemaker/" target="_blank">ADMET Prediction <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Lead Candidates</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/omics/" target="_blank">Lead Candidates <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Trial Design</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/health/life-sciences/" target="_blank">Trial Design <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -2126,7 +2240,13 @@ body::after {
       </div>
     </div>
 
-    <div class="content-grid">
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/government-education/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/explore/global-infrastructure/government/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/solutions/government" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card"><div class="card-title">🎯 Use Cases</div><ul class="use-case-list"><li>Benefits and claims fraud detection</li><li>Document intake and form processing automation</li><li>Citizen service chatbots and 311 assistance</li><li>Tax return anomaly detection and audit targeting</li><li>Public health surveillance and epidemiological modeling</li><li>Urban planning and traffic flow optimization</li><li>Permitting and licensing workflow automation</li></ul></div>
       <div class="card"><div class="card-title">📊 Model Types</div><ul class="model-list"><li>Gradient Boosting for fraud scoring and audit targeting</li><li>LLMs for citizen Q&A, policy summarization, form assistance</li><li>Document AI for intake automation and extraction</li><li>Time series for public health trend forecasting</li><li>Geospatial models for urban planning and resource allocation</li></ul></div>
       <div class="card"><div class="card-title">✅ Business Value</div><ul class="value-list"><li>Billions recovered through improper payment detection</li><li>50-70% faster benefits application processing</li><li>24/7 citizen service availability via AI chatbots</li><li>Reduced backlog in permitting and licensing</li><li>More equitable resource allocation through data-driven planning</li></ul></div>
@@ -2136,19 +2256,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">Citizen Forms / Claims</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/textract/" target="_blank">Citizen Forms / Claims <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Document Intake</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/textract/" target="_blank">Document Intake <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Classification / Extraction</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/comprehend/" target="_blank">Classification / Extraction <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">Fraud / Eligibility Model</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/fraud-detector/" target="_blank">Fraud / Eligibility Model <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Decision Engine</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/sagemaker/" target="_blank">Decision Engine <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Case Worker Queue</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/connect/" target="_blank">Case Worker Queue <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Citizen Portal</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/amplify/" target="_blank">Citizen Portal <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -2184,7 +2304,14 @@ body::after {
         <div class="industry-tags"><span class="tag tag-blue">Code Generation</span><span class="tag tag-purple">AIOps</span><span class="tag tag-green">Incident AI</span></div>
       </div>
     </div>
-    <div class="content-grid">
+
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/developer/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/products/devops/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/devops" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card"><div class="card-title">🎯 Use Cases</div><ul class="use-case-list"><li>Code generation, completion, and review assistance</li><li>Automated test generation and coverage improvement</li><li>Incident response copilots and runbook automation</li><li>Infrastructure drift detection and cost optimization</li><li>Ticket triage and service catalog automation</li><li>Internal knowledge retrieval and onboarding</li></ul></div>
       <div class="card"><div class="card-title">📊 Model Types</div><ul class="model-list"><li>Code LLMs (Codex, Claude Code, Gemini Code) for generation</li><li>Anomaly detection on infra telemetry (metrics, logs, traces)</li><li>Graph models for service dependency mapping</li><li>Classifier models for ticket routing and priority</li></ul></div>
       <div class="card"><div class="card-title">✅ Business Value</div><ul class="value-list"><li>30-55% developer productivity improvement with AI copilots</li><li>50-70% faster incident MTTR with AI-assisted investigation</li><li>Reduced on-call burden through automated runbook execution</li><li>Higher code coverage from AI-generated tests</li><li>Faster onboarding for new engineers via knowledge assistants</li></ul></div>
@@ -2194,19 +2321,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">Code Repo / Logs</div>
+        <div class="flow-node data-node"><a href="https://azure.microsoft.com/en-us/products/devops/" target="_blank">Code Repo / Logs <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Metrics / Traces</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/cloudwatch/" target="_blank">Metrics / Traces <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Context Retrieval</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/kendra/" target="_blank">Context Retrieval <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">Code LLM / AIOps</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/codewhisperer/" target="_blank">Code LLM / AIOps <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Safety Checks</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/codeguru/" target="_blank">Safety Checks <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">IDE / CLI Copilot</div>
+        <div class="flow-node output-node"><a href="https://github.com/features/copilot" target="_blank">IDE / CLI Copilot <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Ops Dashboard</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/cloudwatch/" target="_blank">Ops Dashboard <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -2252,7 +2379,13 @@ body::after {
       </div>
     </div>
 
-    <div class="content-grid">
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/smart-buildings/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/solutions/industries/real-estate/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/solutions/smart-buildings" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card">
         <div class="card-title">🎯 Use Cases</div>
         <ul class="use-case-list">
@@ -2300,19 +2433,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">MLS / IoT / Drone</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/iot-core/" target="_blank">MLS / IoT / Drone <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Geospatial + Image Store</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/s3/" target="_blank">Geospatial + Image Store <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Feature Engineering</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/sagemaker/feature-store/" target="_blank">Feature Engineering <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">CV + Regression + LLM</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/sagemaker/" target="_blank">CV + Regression + LLM <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Inference Engine</div>
+        <div class="flow-node"><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/deploy-model.html" target="_blank">Inference Engine <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">AVM / Safety Alert</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/lookout-for-vision/" target="_blank">AVM / Safety Alert <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">BMS / Lease Dashboard</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/iot-twinmaker/" target="_blank">BMS / Lease Dashboard <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -2360,7 +2493,13 @@ body::after {
       </div>
     </div>
 
-    <div class="content-grid">
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/media/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/solutions/industries/media-entertainment/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/solutions/media-entertainment" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card">
         <div class="card-title">🎯 Use Cases</div>
         <ul class="use-case-list">
@@ -2408,19 +2547,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">Video / Audio / Text</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/mediaconvert/" target="_blank">Video / Audio / Text <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Content Ingestion Pipeline</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/mediaconvert/" target="_blank">Content Ingestion Pipeline <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Transcription + Tagging</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/transcribe/" target="_blank">Transcription + Tagging <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">Multimodal LLM / ASR</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/bedrock/" target="_blank">Multimodal LLM / ASR <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Moderation + Metadata</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/rekognition/" target="_blank">Moderation + Metadata <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Recommendation Engine</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/personalize/" target="_blank">Recommendation Engine <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Personalized Feed</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/personalize/" target="_blank">Personalized Feed <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -2468,7 +2607,13 @@ body::after {
       </div>
     </div>
 
-    <div class="content-grid">
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/government-education/agtech/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/solutions/industries/agriculture/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/solutions/agriculture" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card">
         <div class="card-title">🎯 Use Cases</div>
         <ul class="use-case-list">
@@ -2516,19 +2661,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">Satellite / Drone</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/ground-station/" target="_blank">Satellite / Drone <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">IoT Soil + Weather</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/iot-core/" target="_blank">IoT Soil + Weather <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Geospatial Processing</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/sagemaker/geospatial/" target="_blank">Geospatial Processing <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">CV + LSTM Forecast</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/sagemaker/" target="_blank">CV + LSTM Forecast <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Disease / Yield Inference</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/lookout-for-vision/" target="_blank">Disease / Yield Inference <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Irrigation Command</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/iot-core/" target="_blank">Irrigation Command <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Farmer Dashboard</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/quicksight/" target="_blank">Farmer Dashboard <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -2573,7 +2718,13 @@ body::after {
       </div>
     </div>
 
-    <div class="content-grid">
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/bedrock/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/products/openai-service/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/vertex-ai" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card">
         <div class="card-title">🎯 Use Cases</div>
         <ul class="use-case-list">
@@ -2621,19 +2772,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">Resume / ATS / HRIS</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/textract/" target="_blank">Resume / ATS / HRIS <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Job Descriptions + Skills DB</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/kendra/" target="_blank">Job Descriptions + Skills DB <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Embedding + Feature Eng.</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/sagemaker/" target="_blank">Embedding + Feature Eng. <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">Matcher + Attrition Model</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/sagemaker/" target="_blank">Matcher + Attrition Model <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Bias Audit Layer</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/sagemaker/clarify/" target="_blank">Bias Audit Layer <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Recruiter Shortlist</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/quicksight/" target="_blank">Recruiter Shortlist <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">HR Copilot / Dashboard</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/bedrock/" target="_blank">HR Copilot / Dashboard <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -2679,7 +2830,13 @@ body::after {
       </div>
     </div>
 
-    <div class="content-grid">
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/telecom/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/solutions/industries/telecommunications/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/solutions/telecommunications" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card">
         <div class="card-title">🎯 Use Cases</div>
         <ul class="use-case-list">
@@ -2727,19 +2884,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">Network Telemetry (KPIs)</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/iot-sitewise/" target="_blank">Network Telemetry (KPIs) <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">CRM + BSS / OSS</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/redshift/" target="_blank">CRM + BSS / OSS <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Stream Processing</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/kinesis/" target="_blank">Stream Processing <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">Anomaly + Churn Models</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/sagemaker/" target="_blank">Anomaly + Churn Models <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Decisioning Engine</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/sagemaker/" target="_blank">Decisioning Engine <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">NOC Alert / Ticket</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/cloudwatch/" target="_blank">NOC Alert / Ticket <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Retention Offer / Agent</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/connect/" target="_blank">Retention Offer / Agent <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -2786,7 +2943,13 @@ body::after {
       </div>
     </div>
 
-    <div class="content-grid">
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/financial-services/insurance/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/solutions/industries/insurance/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/solutions/insurance" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card">
         <div class="card-title">🎯 Use Cases</div>
         <ul class="use-case-list">
@@ -2834,19 +2997,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">FNOL / Photos / Policy Data</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/textract/" target="_blank">FNOL / Photos / Policy Data <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Claims Notes + Docs</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/comprehend/" target="_blank">Claims Notes + Docs <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">IDP + CV Extraction</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/textract/" target="_blank">IDP + CV Extraction <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">Fraud + Damage Models</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/fraud-detector/" target="_blank">Fraud + Damage Models <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Decisioning + Rules Engine</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/sagemaker/" target="_blank">Decisioning + Rules Engine <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Auto-Settle / Flag</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/sagemaker/" target="_blank">Auto-Settle / Flag <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Adjuster Copilot</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/bedrock/" target="_blank">Adjuster Copilot <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -2894,7 +3057,13 @@ body::after {
       </div>
     </div>
 
-    <div class="content-grid">
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/automotive/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/solutions/automotive/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/solutions/automotive" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card">
         <div class="card-title">🎯 Use Cases</div>
         <ul class="use-case-list">
@@ -2942,19 +3111,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">Camera / LiDAR / Radar</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/iot-fleetwise/" target="_blank">Camera / LiDAR / Radar <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Telematics / CAN Bus</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/iot-fleetwise/" target="_blank">Telematics / CAN Bus <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Edge Preprocessing</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/greengrass/" target="_blank">Edge Preprocessing <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">CV + Battery + Fault Models</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/sagemaker/" target="_blank">CV + Battery + Fault Models <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Safety Validation Layer</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/sagemaker/" target="_blank">Safety Validation Layer <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">ADAS Actuation</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/automotive/" target="_blank">ADAS Actuation <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Fleet / OEM Dashboard</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/iot-fleetwise/" target="_blank">Fleet / OEM Dashboard <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -3000,7 +3169,13 @@ body::after {
       </div>
     </div>
 
-    <div class="content-grid">
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/gaming/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/solutions/industries/gaming/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/solutions/gaming" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card">
         <div class="card-title">🎯 Use Cases</div>
         <ul class="use-case-list">
@@ -3048,19 +3223,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">Player Events / Telemetry</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/gamelift/" target="_blank">Player Events / Telemetry <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Game State + Economy Data</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/dynamodb/" target="_blank">Game State + Economy Data <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Stream Processing</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/kinesis/" target="_blank">Stream Processing <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">RL + Churn + Cheat Models</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/sagemaker/" target="_blank">RL + Churn + Cheat Models <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Decisioning Engine</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/sagemaker/" target="_blank">Decisioning Engine <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">NPC Behavior / Ban Signal</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/gamelift/" target="_blank">NPC Behavior / Ban Signal <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">LiveOps Dashboard</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/quicksight/" target="_blank">LiveOps Dashboard <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
@@ -3102,7 +3277,13 @@ body::after {
       </div>
     </div>
 
-    <div class="content-grid">
+    <div class="industry-docs">
+      <a class="doc-link aws" href="https://aws.amazon.com/supply-chain/" target="_blank">AWS Solutions ↗</a>
+      <a class="doc-link azure" href="https://azure.microsoft.com/en-us/products/supply-chain-center/" target="_blank">Azure Solutions ↗</a>
+      <a class="doc-link gcp" href="https://cloud.google.com/solutions/supply-chain-management" target="_blank">GCP Solutions ↗</a>
+    </div>
+
+        <div class="content-grid">
       <div class="card"><div class="card-title">🎯 Use Cases</div><ul class="use-case-list"><li>Demand sensing and multi-horizon forecasting</li><li>Supplier risk scoring and alternative sourcing</li><li>Inventory optimization and safety stock modeling</li><li>Procurement contract analysis and spend analytics</li><li>Shipment delay prediction and ETA adjustment</li><li>Geopolitical disruption early warning</li><li>Warehouse layout and pick-path optimization</li></ul></div>
       <div class="card"><div class="card-title">📊 Model Types</div><ul class="model-list"><li>DeepAR / Temporal Fusion Transformer for demand forecasting</li><li>Gradient Boosting for supplier risk and delay prediction</li><li>LLMs for contract review and procurement copilots</li><li>Optimization solvers for inventory positioning</li><li>NLP for spend classification and PO analysis</li></ul></div>
       <div class="card"><div class="card-title">✅ Business Value</div><ul class="value-list"><li>20-35% reduction in inventory carrying costs</li><li>10-20% improvement in forecast accuracy</li><li>Faster supplier onboarding and risk mitigation</li><li>Reduced stockouts and excess inventory write-offs</li><li>Better procurement negotiation through spend analytics</li></ul></div>
@@ -3112,19 +3293,19 @@ body::after {
     <div class="node-map">
       <div class="node-title">⬡ Reference Architecture Flow</div>
       <div class="flow-nodes">
-        <div class="flow-node data-node">ERP / PO Data</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/supply-chain/" target="_blank">ERP / PO Data <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node data-node">Supplier / Market Signals</div>
+        <div class="flow-node data-node"><a href="https://aws.amazon.com/supply-chain/" target="_blank">Supplier / Market Signals <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Demand Engine</div>
+        <div class="flow-node"><a href="https://aws.amazon.com/forecast/" target="_blank">Demand Engine <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node model-node">Forecast / Risk Model</div>
+        <div class="flow-node model-node"><a href="https://aws.amazon.com/forecast/" target="_blank">Forecast / Risk Model <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node">Optimization Solver</div>
+        <div class="flow-node"><a href="https://cloud.google.com/optimization/docs" target="_blank">Optimization Solver <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Replenishment Plan</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/supply-chain/" target="_blank">Replenishment Plan <span class="ext-arrow">↗</span></a></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node output-node">Supply Chain Dashboard</div>
+        <div class="flow-node output-node"><a href="https://aws.amazon.com/quicksight/" target="_blank">Supply Chain Dashboard <span class="ext-arrow">↗</span></a></div>
       </div>
     </div>
 
