@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Architecture - multi-industry-ai-assistant</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0c0b;color:#f5f2eb;font-family:'SF Mono','Fira Code','Cascadia Code',Consolas,monospace;line-height:1.6;padding:0}
+a{color:#c8420a;text-decoration:none}a:hover{text-decoration:underline}
+.container{max-width:1200px;margin:0 auto;padding:2rem}
+h1{font-size:2rem;color:#f5f2eb;margin-bottom:0.5rem}
+h2{font-size:1.4rem;color:#c8420a;margin:2rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid #222}
+h3{font-size:1.1rem;color:#f5f2eb;margin:1.5rem 0 0.75rem}
+.badge{display:inline-block;padding:0.25rem 0.75rem;border-radius:4px;font-size:0.8rem;font-weight:600;margin-right:0.5rem;margin-bottom:0.5rem}
+.badge-lang{background:#1a3a1a;color:#4ade80;border:1px solid #2d5a2d}
+.badge-cat{background:#1a1a3a;color:#60a5fa;border:1px solid #2d2d5a}
+.badge-ver{background:#3a1a1a;color:#f87171;border:1px solid #5a2d2d}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1rem 0}
+.card{background:#141514;border:1px solid #222;border-radius:8px;padding:1.25rem;text-align:center}
+.card-value{font-size:1.5rem;color:#c8420a;font-weight:700}
+.card-label{font-size:0.8rem;color:#888;margin-top:0.25rem}
+.arch-diagram{background:#101210;border:1px solid #222;border-radius:8px;padding:2rem;margin:1rem 0;overflow-x:auto}
+.flow-row{display:flex;justify-content:center;align-items:center;gap:0.5rem;margin:0.75rem 0;flex-wrap:wrap}
+.flow-box{background:#1a1a2e;border:2px solid #c8420a;border-radius:6px;padding:0.5rem 1rem;font-size:0.8rem;text-align:center;min-width:120px;color:#f5f2eb}
+.flow-box.accent{background:#c8420a;color:#fff;border-color:#e8520a}
+.flow-box.blue{border-color:#1982c4;background:#0f1f3a}
+.flow-box.green{border-color:#2b9348;background:#0f2a1a}
+.flow-box.purple{border-color:#533483;background:#1a0f2e}
+.flow-arrow{color:#c8420a;font-size:1.2rem;font-weight:bold}
+.flow-arrow-down{display:flex;justify-content:center;color:#c8420a;font-size:1.2rem;font-weight:bold}
+.flow-label{font-size:0.7rem;color:#888;display:block}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:0.85rem}
+th{background:#1a1a1a;color:#c8420a;padding:0.75rem;text-align:left;border-bottom:2px solid #333;white-space:nowrap}
+td{padding:0.75rem;border-bottom:1px solid #1a1a1a}
+tr:hover{background:#141514}
+code{background:#1a1a1a;padding:0.15rem 0.4rem;border-radius:3px;font-size:0.85rem;color:#e8a060}
+.checklist{list-style:none;padding:0}
+.checklist li{padding:0.4rem 0;padding-left:1.5rem;position:relative}
+.checklist li::before{content:'[ ]';position:absolute;left:0;color:#c8420a;font-weight:bold}
+.section-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.section-box{background:#141514;border:1px solid #222;border-radius:8px;padding:1.25rem}
+.section-box h3{margin-top:0}
+footer{margin-top:3rem;padding:1.5rem 0;border-top:1px solid #222;text-align:center;font-size:0.75rem;color:#555}
+.env-table td:first-child{color:#4ade80}
+.header-bar{background:#141514;border-bottom:1px solid #222;padding:1.5rem 0}
+.header-bar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.industry-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.industry-card{background:#141514;border:1px solid #222;border-radius:8px;padding:1rem}
+.industry-card h4{color:#c8420a;margin-bottom:0.5rem;font-size:0.95rem}
+.industry-card p{font-size:0.8rem;color:#aaa}
+</style>
+</head>
+<body>
+
+<div class="header-bar">
+<div class="container">
+<div>
+<h1>multi-industry-ai-assistant</h1>
+<p style="color:#888;margin-top:0.25rem">HIPAA/SOX/OSHA-compliant AI assistant with multi-industry regulatory intelligence and compliance automation</p>
+</div>
+<div>
+<span class="badge badge-lang">Python 3.11+</span>
+<span class="badge badge-cat">AI/Compliance</span>
+<span class="badge badge-ver">v0.1.0</span>
+</div>
+</div>
+</div>
+
+<div class="container">
+
+<h2>Executive Summary</h2>
+<p>A production-grade AI assistant designed to operate across highly regulated industries including healthcare (HIPAA), finance (SOX), and industrial safety (OSHA). The system uses LLM-powered natural language processing to interpret regulatory queries, retrieve relevant compliance documents via RAG, and generate actionable guidance tailored to specific industry frameworks. Built with strict data handling controls, audit logging, and configurable compliance profiles for multi-tenant deployment scenarios.</p>
+
+<h2>Overview</h2>
+<div class="cards">
+<div class="card"><div class="card-value">Python</div><div class="card-label">Language</div></div>
+<div class="card"><div class="card-value">AI/Compliance</div><div class="card-label">Category</div></div>
+<div class="card"><div class="card-value">3</div><div class="card-label">Industry Profiles</div></div>
+<div class="card"><div class="card-value">HIPAA/SOX/OSHA</div><div class="card-label">Compliance Frameworks</div></div>
+<div class="card"><div class="card-value">RAG</div><div class="card-label">Retrieval Method</div></div>
+<div class="card"><div class="card-value">MIT</div><div class="card-label">License</div></div>
+</div>
+
+<h2>Architecture Diagram</h2>
+<div class="arch-diagram">
+<div class="flow-row">
+<div class="flow-box accent">User Query<br><span class="flow-label">Natural Language</span></div>
+</div>
+<div class="flow-arrow-down">v</div>
+<div class="flow-row">
+<div class="flow-box blue">Industry Classifier<br><span class="flow-label">HIPAA / SOX / OSHA Detection</span></div>
+</div>
+<div class="flow-arrow-down">v</div>
+<div class="flow-row">
+<div class="flow-box purple">Compliance Profile Loader<br><span class="flow-label">Regulatory Framework Selection</span></div>
+<div class="flow-arrow">&lt;--&gt;</div>
+<div class="flow-box green">Document Store<br><span class="flow-label">Regulation Knowledge Base</span></div>
+</div>
+<div class="flow-arrow-down">v</div>
+<div class="flow-row">
+<div class="flow-box accent">RAG Retrieval Engine<br><span class="flow-label">Vector Search + BM25 Hybrid</span></div>
+</div>
+<div class="flow-arrow-down">v</div>
+<div class="flow-row">
+<div class="flow-box blue">LLM Generation<br><span class="flow-label">GPT-4 / Claude with Grounding</span></div>
+<div class="flow-arrow">&lt;--&gt;</div>
+<div class="flow-box purple">Faithfulness Validator<br><span class="flow-label">Citation Verification</span></div>
+</div>
+<div class="flow-arrow-down">v</div>
+<div class="flow-row">
+<div class="flow-box green">Audit Logger<br><span class="flow-label">Compliance Trail</span></div>
+<div class="flow-box accent">Response Formatter<br><span class="flow-label">Industry-Specific Output</span></div>
+</div>
+<div class="flow-label" style="text-align:center">Compliant Response Delivery</div>
+</div>
+
+<h2>Component Breakdown</h2>
+<table>
+<thead><tr><th>Component</th><th>Purpose</th><th>Key Dependencies</th></tr></thead>
+<tbody>
+<tr><td>Industry Classifier</td><td>Detects the regulatory domain (HIPAA, SOX, OSHA) from user queries and routes to the appropriate compliance profile</td><td>langchain, openai</td></tr>
+<tr><td>Compliance Profile Loader</td><td>Loads industry-specific configuration: allowed data types, retention policies, required disclaimers</td><td>pydantic, pyyaml</td></tr>
+<tr><td>Document Store</td><td>Vector database of regulatory documents, CFR references, and compliance checklists</td><td>pgvector, chromadb</td></tr>
+<tr><td>RAG Retrieval Engine</td><td>Hybrid search (dense + sparse) over regulation knowledge base with relevance filtering</td><td>langchain, sentence-transformers</td></tr>
+<tr><td>LLM Generation</td><td>Generates regulatory guidance grounded in retrieved documents with citation attribution</td><td>langchain-openai, anthropic</td></tr>
+<tr><td>Faithfulness Validator</td><td>Validates generated responses against source documents to prevent hallucination</td><td>ragas, nltk</td></tr>
+<tr><td>Audit Logger</td><td>Records all queries, responses, and data access events for compliance audit trails</td><td>structlog, python-json-logger</td></tr>
+<tr><td>Response Formatter</td><td>Formats outputs with industry-specific disclaimers, citations, and compliance metadata</td><td>jinja2</td></tr>
+</tbody>
+</table>
+
+<h2>Data Flow / Request Flow</h2>
+<div class="section-box">
+<ol style="padding-left:1.5rem;color:#ccc">
+<li><strong>Query Intake</strong> -- User submits a natural language question about regulatory compliance (e.g., "What are HIPAA breach notification requirements?").</li>
+<li><strong>Industry Classification</strong> -- The classifier identifies the applicable regulatory framework (HIPAA, SOX, or OSHA) and loads the corresponding compliance profile.</li>
+<li><strong>Document Retrieval</strong> -- The RAG engine performs hybrid search across the regulation knowledge base, retrieving the most relevant regulatory text, guidance documents, and precedents.</li>
+<li><strong>Grounded Generation</strong> -- The LLM generates a response strictly grounded in retrieved documents, with inline citations to specific regulatory sections (e.g., 45 CFR 164.408).</li>
+<li><strong>Faithfulness Validation</strong> -- The validator checks that every claim in the response is supported by a retrieved source document. Unsupported claims trigger re-generation or human review.</li>
+<li><strong>Audit Logging</strong> -- The complete request/response cycle is logged with timestamps, user context, retrieved documents, and compliance metadata for audit trail purposes.</li>
+<li><strong>Response Delivery</strong> -- The formatted response is returned with industry-specific disclaimers, source citations, and confidence scores.</li>
+</ol>
+</div>
+
+<h2>Security Controls</h2>
+<table>
+<thead><tr><th>Control</th><th>Implementation</th></tr></thead>
+<tbody>
+<tr><td>Data Classification</td><td>Automatic PHI/PII detection and redaction before LLM processing</td></tr>
+<tr><td>Access Control</td><td>Role-based access with industry-specific permission profiles</td></tr>
+<tr><td>Audit Logging</td><td>Immutable audit trail for all queries and responses (HIPAA/SOX requirement)</td></tr>
+<tr><td>Encryption</td><td>AES-256 encryption at rest, TLS 1.3 in transit for all data flows</td></tr>
+<tr><td>Data Retention</td><td>Configurable retention policies per industry (7 years SOX, 6 years HIPAA)</td></tr>
+<tr><td>API Key Management</td><td>Environment variables via python-dotenv; no hardcoded secrets</td></tr>
+<tr><td>Input Sanitization</td><td>Prompt injection prevention and input validation via Pydantic models</td></tr>
+<tr><td>Compliance Boundaries</td><td>Industry-specific data handling rules enforced at the profile level</td></tr>
+</tbody>
+</table>
+
+<h2>Industry Adaptation</h2>
+<div class="industry-grid">
+<div class="industry-card"><h4>Healthcare (HIPAA)</h4><p>PHI detection and redaction, breach notification guidance, 45 CFR reference retrieval, BAA requirement checks, minimum necessary standard enforcement.</p></div>
+<div class="industry-card"><h4>Finance (SOX)</h4><p>Internal control assessment guidance, financial reporting compliance, audit committee requirements, Section 302/404 certification support, 7-year retention enforcement.</p></div>
+<div class="industry-card"><h4>Industrial Safety (OSHA)</h4><p>Workplace hazard identification, incident reporting requirements (29 CFR 1904), PPE compliance guidance, safety training requirements, recordkeeping obligations.</p></div>
+<div class="industry-card"><h4>Government</h4><p>FedRAMP compliance mapping, NIST 800-53 control guidance, CMMC level assessment, CUI handling requirements, FISMA reporting support.</p></div>
+<div class="industry-card"><h4>Education</h4><p>FERPA student record protections, COPPA compliance for minors, institutional review board guidance, Title IX reporting requirements.</p></div>
+</div>
+
+<h2>Production Readiness Checklist</h2>
+<ul class="checklist">
+<li>Configure LLM API keys (OpenAI/Anthropic) and validate model access</li>
+<li>Load regulatory document corpus into vector store and verify retrieval accuracy</li>
+<li>Configure industry-specific compliance profiles (HIPAA, SOX, OSHA)</li>
+<li>Enable PHI/PII detection and redaction pipeline</li>
+<li>Set up immutable audit logging with configured retention periods</li>
+<li>Configure RBAC with industry-appropriate permission profiles</li>
+<li>Test faithfulness validation with known regulatory scenarios</li>
+<li>Deploy behind TLS-terminating reverse proxy</li>
+<li>Set up monitoring, alerting, and compliance dashboards</li>
+<li>Conduct compliance review with legal/regulatory team</li>
+<li>Run penetration testing and security audit</li>
+</ul>
+
+<h2>Configuration / Environment Variables</h2>
+<table class="env-table">
+<thead><tr><th>Variable</th><th>Required</th><th>Default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>OPENAI_API_KEY</code></td><td>Yes</td><td>--</td><td>OpenAI API key for LLM generation</td></tr>
+<tr><td><code>ANTHROPIC_API_KEY</code></td><td>No</td><td>--</td><td>Anthropic API key (alternative LLM)</td></tr>
+<tr><td><code>VECTOR_DB_URL</code></td><td>Yes</td><td>--</td><td>Connection string for vector database</td></tr>
+<tr><td><code>INDUSTRY_PROFILE</code></td><td>No</td><td>hipaa</td><td>Default compliance profile: hipaa, sox, osha</td></tr>
+<tr><td><code>AUDIT_LOG_PATH</code></td><td>No</td><td>./logs/audit</td><td>Path for immutable audit logs</td></tr>
+<tr><td><code>RETENTION_DAYS</code></td><td>No</td><td>2555</td><td>Log retention period in days (default 7 years for SOX)</td></tr>
+<tr><td><code>ENABLE_PHI_REDACTION</code></td><td>No</td><td>true</td><td>Enable automatic PHI/PII redaction</td></tr>
+<tr><td><code>FAITHFULNESS_THRESHOLD</code></td><td>No</td><td>0.85</td><td>Minimum faithfulness score for response delivery</td></tr>
+</tbody>
+</table>
+
+<h2>Deployment</h2>
+<div class="section-grid">
+<div class="section-box">
+<h3>Local Development</h3>
+<pre><code>git clone https://github.com/kogunlowo123/multi-industry-ai-assistant.git
+cd multi-industry-ai-assistant
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env
+# Edit .env with API keys
+python -m src.main</code></pre>
+</div>
+<div class="section-box">
+<h3>Production Deployment</h3>
+<pre><code># Deploy with Docker
+docker build -t multi-industry-ai-assistant .
+docker run -e OPENAI_API_KEY=sk-xxx \
+  -e VECTOR_DB_URL=postgresql://... \
+  -e INDUSTRY_PROFILE=hipaa \
+  multi-industry-ai-assistant
+
+# Deploy behind nginx/Caddy with TLS
+# Enable immutable audit logging
+# Configure compliance dashboards</code></pre>
+</div>
+</div>
+
+<h2>Links</h2>
+<table>
+<tbody>
+<tr><td>Repository</td><td><a href="https://github.com/kogunlowo123/multi-industry-ai-assistant">github.com/kogunlowo123/multi-industry-ai-assistant</a></td></tr>
+<tr><td>README</td><td><a href="../README.md">README.md</a></td></tr>
+<tr><td>Industry Adaptation</td><td><a href="../INDUSTRY-ADAPTATION.md">INDUSTRY-ADAPTATION.md</a></td></tr>
+<tr><td>License</td><td><a href="../LICENSE">MIT License</a></td></tr>
+</tbody>
+</table>
+
+<footer>
+Generated on 2026-03-15 | multi-industry-ai-assistant v0.1.0 | Architecture Documentation
+</footer>
+
+</div>
+</body>
+</html>
