@@ -3,6 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Comprehensive AI reference covering 22+ industries, 200+ use cases, and multi-cloud service integrations across AWS, Azure, and Google Cloud Platform.">
+<meta name="author" content="Kehinde Ogunlowo">
+<meta property="og:title" content="Industry AI Intelligence Hub">
+<meta property="og:description" content="22+ industries, 200+ AI use cases, AWS/Azure/GCP cloud service maps with direct documentation links.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Industry AI Intelligence Hub">
+<meta name="twitter:description" content="Comprehensive AI reference across 22+ industries with multi-cloud integrations.">
 <title>Industry AI Intelligence Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&family=Instrument+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -992,13 +1000,52 @@ body::after {
 
 @media (max-width: 900px) {
   .layout { grid-template-columns: 1fr; }
-  .sidebar { position: static; height: auto; }
+  .sidebar { position: static; height: auto; max-height: 50vh; overflow-y: auto; border-right: none; border-bottom: 1px solid var(--border); }
   .content-grid { grid-template-columns: 1fr; }
   .commercial-grid { grid-template-columns: 1fr; }
   .main { padding: 24px; }
+  .hero h1 { font-size: 32px; letter-spacing: -1px; }
+  .industry-title { font-size: 22px; }
+  .industry-header { flex-direction: column; gap: 12px; padding: 20px; }
+  .cloud-tab { font-size: 11px; padding: 10px 12px; }
+}
+
+@media (max-width: 600px) {
+  .ai-category-grid { grid-template-columns: 1fr; }
+  .agent-grid { grid-template-columns: 1fr; }
+  .content-grid-3 { grid-template-columns: 1fr; }
+  .stats-row { gap: 16px; }
+  .stat-card { padding: 12px 16px; }
+  .stat-number { font-size: 22px; }
+  .main { padding: 16px; }
+  .header { padding: 0 16px; }
+  .industry-icon-big { width: 44px; height: 44px; font-size: 20px; }
+  .cloud-panel.active { grid-template-columns: 1fr; }
+  .footer { padding: 24px 16px; }
+  .footer-links { gap: 8px; }
+  .node-map { padding: 16px; }
+  .flow-nodes { gap: 0; }
+  .flow-node { padding: 6px 10px; font-size: 10px; }
+  .flow-arrow { padding: 0 4px; font-size: 12px; }
+  .commercial-grid { grid-template-columns: 1fr; }
+  #commercial .card div[style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
 }
 
 .hidden { display: none !important; }
+
+/* PRINT */
+@media print {
+  body::before, body::after { display: none; }
+  .header { position: static; }
+  .sidebar { display: none; }
+  .layout { grid-template-columns: 1fr; }
+  .main { max-width: 100%; padding: 0; }
+  .cloud-panel { display: grid !important; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .cloud-tabs { display: none; }
+  .industry-section { page-break-inside: avoid; }
+  .node-map { page-break-inside: avoid; }
+  a { color: inherit; text-decoration: underline; }
+}
 </style>
 </head>
 <body>
@@ -1336,10 +1383,10 @@ body::after {
           </a>
         </div>
         <div class="service-node" style="--cloud-color:var(--azure)">
-          <a href="https://learn.microsoft.com/en-us/azure/genomics/" target="_blank">
-            <div class="service-name-link">Microsoft Genomics <span class="ext-arrow">↗</span></div>
-            <div class="service-desc">Cloud-based secondary analysis for genomics, providing Burrows-Wheeler Aligner and GATK for variant calling at scale.</div>
-            <div class="service-tags"><span class="stag">Genomics</span><span class="stag">BWA</span><span class="stag">GATK</span></div>
+          <a href="https://learn.microsoft.com/en-us/azure/open-datasets/dataset-genomics-data-lake" target="_blank">
+            <div class="service-name-link">Azure Genomics Data Lake <span class="ext-arrow">↗</span></div>
+            <div class="service-desc">Open genomics datasets on Azure with HPC-powered secondary analysis using Azure Batch and CromwellOnAzure for variant calling at scale.</div>
+            <div class="service-tags"><span class="stag">Genomics</span><span class="stag">HPC</span><span class="stag">Open Data</span></div>
           </a>
         </div>
         <div class="service-node" style="--cloud-color:var(--azure)">
@@ -1373,7 +1420,7 @@ body::after {
           </a>
         </div>
         <div class="service-node" style="--cloud-color:var(--gcp)">
-          <a href="https://cloud.google.com/life-sciences" target="_blank">
+          <a href="https://cloud.google.com/batch" target="_blank">
             <div class="service-name-link">Cloud Life Sciences <span class="ext-arrow">↗</span></div>
             <div class="service-desc">Execute genomics pipelines and bioinformatics workflows at scale using containerized tools on Google Cloud infrastructure.</div>
             <div class="service-tags"><span class="stag">Genomics</span><span class="stag">Pipelines</span></div>
@@ -1495,7 +1542,7 @@ body::after {
         <div class="service-node" style="--cloud-color:var(--gcp)"><a href="https://cloud.google.com/vertex-ai" target="_blank"><div class="service-name-link">Vertex AI ↗</div><div class="service-desc">Train fraud detection, credit scoring, and customer churn models with AutoML, custom training, and managed serving infrastructure.</div><div class="service-tags"><span class="stag">Fraud</span><span class="stag">Credit</span><span class="stag">AutoML</span></div></a></div>
         <div class="service-node" style="--cloud-color:var(--gcp)"><a href="https://cloud.google.com/document-ai" target="_blank"><div class="service-name-link">Document AI ↗</div><div class="service-desc">Pre-built processors for financial documents: lending, identity, W2, invoices, and custom document processors for KYC workflows.</div><div class="service-tags"><span class="stag">KYC</span><span class="stag">Lending</span></div></a></div>
         <div class="service-node" style="--cloud-color:var(--gcp)"><a href="https://cloud.google.com/bigquery-ml" target="_blank"><div class="service-name-link">BigQuery ML ↗</div><div class="service-desc">Build and run ML models directly in BigQuery on transaction data for fraud scoring, customer segmentation, and spend forecasting.</div><div class="service-tags"><span class="stag">In-DB ML</span><span class="stag">Fraud</span></div></a></div>
-        <div class="service-node" style="--cloud-color:var(--gcp)"><a href="https://cloud.google.com/graph-neural-networks" target="_blank"><div class="service-name-link">Graph Neural Networks (Vertex) ↗</div><div class="service-desc">Build GNN models on Vertex AI for detecting fraud rings, transaction anomalies, and counterparty risk in financial networks.</div><div class="service-tags"><span class="stag">GNN</span><span class="stag">AML</span></div></a></div>
+        <div class="service-node" style="--cloud-color:var(--gcp)"><a href="https://cloud.google.com/vertex-ai/docs/training/overview" target="_blank"><div class="service-name-link">Graph Neural Networks (Vertex) ↗</div><div class="service-desc">Build GNN models on Vertex AI for detecting fraud rings, transaction anomalies, and counterparty risk in financial networks.</div><div class="service-tags"><span class="stag">GNN</span><span class="stag">AML</span></div></a></div>
       </div>
     </div>
   </section>
@@ -2061,7 +2108,7 @@ body::after {
         <div class="service-node" style="--cloud-color:var(--azure)"><a href="https://azure.microsoft.com/en-us/products/machine-learning/" target="_blank"><div class="service-name-link">Azure Machine Learning ↗</div><div class="service-desc">Train graph neural networks and sequence models for molecule property prediction, target identification, and clinical trial optimization.</div><div class="service-tags"><span class="stag">GNN</span><span class="stag">Molecules</span></div></a></div>
       </div>
       <div class="cloud-panel" id="pha-2" style="--cloud-color:var(--gcp)">
-        <div class="service-node" style="--cloud-color:var(--gcp)"><a href="https://cloud.google.com/life-sciences" target="_blank"><div class="service-name-link">Cloud Life Sciences ↗</div><div class="service-desc">Scalable genomics and bioinformatics pipeline execution, including variant calling, sequence alignment, and multi-omics workflows.</div><div class="service-tags"><span class="stag">Genomics</span><span class="stag">Bioinformatics</span></div></a></div>
+        <div class="service-node" style="--cloud-color:var(--gcp)"><a href="https://cloud.google.com/batch" target="_blank"><div class="service-name-link">Cloud Batch (Life Sciences) ↗</div><div class="service-desc">Scalable genomics and bioinformatics pipeline execution, including variant calling, sequence alignment, and multi-omics workflows.</div><div class="service-tags"><span class="stag">Genomics</span><span class="stag">Bioinformatics</span></div></a></div>
         <div class="service-node" style="--cloud-color:var(--gcp)"><a href="https://deepmind.google/technologies/alphafold/" target="_blank"><div class="service-name-link">AlphaFold (via DeepMind/GCP) ↗</div><div class="service-desc">World's most accurate protein structure prediction model — accessible via Google DeepMind API for drug target analysis.</div><div class="service-tags"><span class="stag">Protein</span><span class="stag">Structure</span></div></a></div>
         <div class="service-node" style="--cloud-color:var(--gcp)"><a href="https://cloud.google.com/vertex-ai" target="_blank"><div class="service-name-link">Vertex AI ↗</div><div class="service-desc">Train and serve molecular ML models, ADMET predictors, and clinical outcome prediction models on managed infrastructure.</div><div class="service-tags"><span class="stag">ADMET</span><span class="stag">Clinical</span></div></a></div>
       </div>
@@ -2505,7 +2552,7 @@ body::after {
       <div class="cloud-panel" id="ag-2" style="--cloud-color:var(--gcp)">
         <div class="service-node" style="--cloud-color:var(--gcp)"><a href="https://earthengine.google.com/" target="_blank"><div class="service-name-link">Google Earth Engine ↗</div><div class="service-desc">Planetary-scale geospatial analysis platform for crop health monitoring, deforestation detection, drought mapping, and multiyear satellite time series analysis.</div><div class="service-tags"><span class="stag">Satellite</span><span class="stag">Geospatial</span><span class="stag">NDVI</span></div></a></div>
         <div class="service-node" style="--cloud-color:var(--gcp)"><a href="https://cloud.google.com/vertex-ai" target="_blank"><div class="service-name-link">Vertex AI ↗</div><div class="service-desc">Train segmentation and classification models on multispectral imagery for crop mapping, soil type classification, and yield forecasting with AutoML or custom training.</div><div class="service-tags"><span class="stag">Segmentation</span><span class="stag">Yield</span><span class="stag">AutoML</span></div></a></div>
-        <div class="service-node" style="--cloud-color:var(--gcp)"><a href="https://cloud.google.com/iot-core" target="_blank"><div class="service-name-link">Cloud IoT + Pub/Sub ↗</div><div class="service-desc">Ingest real-time telemetry from farm sensors and autonomous equipment — route to BigQuery and Vertex AI for continuous monitoring and alerting.</div><div class="service-tags"><span class="stag">IoT Ingest</span><span class="stag">Real-time</span></div></a></div>
+        <div class="service-node" style="--cloud-color:var(--gcp)"><a href="https://cloud.google.com/pubsub" target="_blank"><div class="service-name-link">Cloud Pub/Sub + Dataflow ↗</div><div class="service-desc">Ingest real-time telemetry from farm sensors and autonomous equipment — route to BigQuery and Vertex AI for continuous monitoring and alerting.</div><div class="service-tags"><span class="stag">IoT Ingest</span><span class="stag">Real-time</span></div></a></div>
       </div>
     </div>
   </section>
@@ -3250,7 +3297,7 @@ body::after {
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-title">Industry AI Intelligence Hub</div>
-    <div class="footer-desc">Comprehensive reference covering 22+ industries, 200+ AI use cases, and multi-cloud service integrations across AWS, Azure, and Google Cloud Platform. All cloud service links point directly to official documentation.</div>
+    <div class="footer-desc">Comprehensive reference covering 22+ industries, 200+ AI use cases, and multi-cloud service integrations across AWS, Azure, and Google Cloud Platform. All cloud service links point directly to official documentation. Built by <a href="https://github.com/kogunlowo123" target="_blank" style="color:var(--accent);text-decoration:none">Kehinde Ogunlowo</a> | <a href="https://citadelcloudmanagement.com" target="_blank" style="color:var(--accent);text-decoration:none">Citadel Cloud Management</a></div>
     <div class="footer-links">
       <a class="footer-link" href="https://aws.amazon.com/ai/" target="_blank">AWS AI Services →</a>
       <a class="footer-link" href="https://azure.microsoft.com/en-us/solutions/ai/" target="_blank">Azure AI →</a>
@@ -3306,10 +3353,16 @@ document.querySelectorAll('[id]').forEach(s => {
   if (s.closest('.layout')) observer.observe(s);
 });
 
-// Cloud filter (decorative)
+// Cloud filter — switches all industries to selected cloud tab
 function setFilter(cloud, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  if (cloud === 'all') return;
+  const idx = cloud === 'aws' ? 0 : cloud === 'azure' ? 1 : 2;
+  document.querySelectorAll('.cloud-tabs').forEach(tabs => {
+    const tabEls = tabs.querySelectorAll('.cloud-tab');
+    if (tabEls[idx]) tabEls[idx].click();
+  });
 }
 </script>
 </body>
